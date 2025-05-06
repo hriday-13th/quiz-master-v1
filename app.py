@@ -1,11 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect_url
 
 app = Flask(__name__)
 
-# Home route
 @app.route('/')
 def home():
-    return "Hello, Flask!"
+    redirect_url("/login")
+
+@app.route('/login'):
+def login():
+    return "we logging here"
 
 # Example API route (GET + POST)
 @app.route('/api/data', methods=['GET', 'POST'])
