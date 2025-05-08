@@ -1,6 +1,7 @@
 import sqlite3
 import logging
 from hashlib import sha256
+from env import ADMIN_USERNAME, ADMIN_PASSWORD, DATABASE_PATH
 
 logging.basicConfig(
     level=logging.INFO,
@@ -12,37 +13,38 @@ logging.basicConfig(
 )
 
 class User:
-    def __init__(self, db_name="quizmaster.db"):
+    def __init__(self, db_name=DATABASE_PATH):
         self.conn = sqlite3.connect(db_name)
+        self.conn.row_factory = sqlite3.Row
         self.cursor = self.conn.cursor()
         self._create_user_table()
         self._ensure_admin_exists()
 
+    def _hash_password(self, password):
+        return sha256(password.encode()).hexdigest()
+
     def _create_user_table(self):
         self.cursor.execute("""
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT UNIQUE NOT NULL,
-                password TEXT NOT NULL,
-                full_name TEXT NOT NULL,
-                qualification TEXT,
-                dob TEXT,
-                is_admin INTEGER DEFAULT 0
+            CREATE TABLE IF NOT EXISTS USER (
+                UserID INTEGER PRIMARY KEY AUTOINCREMENT,
+                Username TEXT NOT NULL UNIQUE,
+                Password TEXT NOT NULL,
+                FullName TEXT,
+                Qualification TEXT,
+                DOB DATE,
+                IsAdmin BOOLEAN DEFAULT 0
             )
         """)
         self.conn.commit()
         logging.info("User table ensured in database.")
 
-    def _hash_password(self, password):
-        return sha256(password.encode()).hexdigest()
-
     def _ensure_admin_exists(self):
-        admin_username = "admin"
-        admin_password = self._hash_password("admin123")
-        self.cursor.execute("SELECT * FROM users WHERE username = ? AND is_admin = 1", (admin_username,))
+        admin_username = ADMIN_USERNAME
+        admin_password = self._hash_password(ADMIN_PASSWORD)
+        self.cursor.execute("SELECT * FROM USER WHERE Username = ? AND IsAdmin = 1", (admin_username,))
         if not self.cursor.fetchone():
             self.cursor.execute("""
-                INSERT INTO users (username, password, full_name, qualification, dob, is_admin)
+                INSERT INTO USER (Username, Password, FullName, Qualification, DOB, IsAdmin)
                 VALUES (?, ?, ?, ?, ?, 1)
             """, (admin_username, admin_password, "System Administrator", "Admin", "1970-01-01"))
             self.conn.commit()
@@ -51,40 +53,40 @@ class User:
             logging.info("Admin account already exists.")
 
     def register(self, username, password, full_name, qualification, dob):
+        hash_password = self._hash_password(password)
         if username.lower() == "admin":
             logging.warning("Cannot register admin user.")
             return
         try:
-            hashed_password = self._hash_password(password)
             self.cursor.execute("""
-                INSERT INTO users (username, password, full_name, qualification, dob)
+                INSERT INTO USER (Username, Password, FullName, Qualification, DOB)
                 VALUES (?, ?, ?, ?, ?)
-            """, (username, hashed_password, full_name, qualification, dob))
+            """, (username, hash_password, full_name, qualification, dob))
             self.conn.commit()
             logging.info(f"User '{username}' registered successfully.")
         except sqlite3.IntegrityError:
             logging.warning(f"Registration failed: Username '{username}' already exists.")
 
     def login(self, username, password):
-        hashed_password = self._hash_password(password)
+        hash_password = self._hash_password(password)
         self.cursor.execute("""
-            SELECT * FROM users WHERE username = ? AND password = ?
-        """, (username, hashed_password))
+            SELECT * FROM USER WHERE Username = ? AND Password = ?
+        """, (username, hash_password))
         user = self.cursor.fetchone()
         if user:
-            role = "Admin" if user[6] == 1 else "User"
+            role = "Admin" if user["IsAdmin"] == 1 else "User"
             logging.info(f"{role} login successful for user '{username}'.")
-            return user
+            return user, role
         else:
             logging.warning(f"Login failed for user '{username}'. Incorrect credentials.")
-            return None
+            return None, None
 
     def remove_user(self, username):
         if username.lower() == "admin":
             logging.warning("Attempt to delete admin blocked.")
             return
         self.cursor.execute("""
-            DELETE FROM users WHERE username = ?
+            DELETE FROM USER WHERE Username = ?
         """, (username,))
         if self.cursor.rowcount > 0:
             self.conn.commit()

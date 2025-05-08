@@ -1,18 +1,24 @@
 import uvicorn
+import sqlite3, os
 from asgiref.wsgi import WsgiToAsgi
-from flask import Flask, request, jsonify, redirect, render_template, session, g
+from flask import Flask, request, jsonify, redirect, flash, render_template, session, url_for, g
 
-import sqlite3, hashlib, os
+from env import DATABASE_PATH, PORT, HOST
+from database.user import User
 
 app = Flask(__name__)
 app.secret_key = "password"
-DATABASE = "quizmaster.db"
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+DATABASE = os.path.join(BASE_DIR, DATABASE_PATH)
 
 # -- database functions --
 def get_db():
     if 'db' not in g:
-        g.db = DATABASE
+        conn = sqlite3.connect(DATABASE)
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA foreign_keys = ON")
+        g.db = conn
         g.db.row_factory = sqlite3.Row
     return g.db
 
@@ -28,33 +34,61 @@ def init_db():
         db.executescript(f.read().decode('utf8'))
 
 
-# -- password hashing --
-def hash_password(password):
-    return hashlib.sha256(password.encode().hexdigest())
-
-
 # -- app functions --
 @app.route('/')
 def home():
     return redirect("/login")
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        full_name = request.form['full_name']
+        qualification = request.form['qualification']
+        dob = request.form['dob']
+
+        user_model = User()
+        user_model.register(username, password, full_name, qualification, dob)
+        user_model.close()
+
+        flash("Signup successful. Please log in.")
+        return redirect(url_for('login'))
+    
     return render_template("signup_page.html")
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        user_model = User()
+        user, role = user_model.login(username=username, password=password)
+        user_model.close()
+
+        if user:
+            session['user_id'] = user['UserID']
+            if role == 'Admin':
+                return redirect(url_for('admin_dashboard'))
+            else:
+                return redirect(url_for('dashboard'))
+        else:
+            flash("User not found. Please sign up first.")
+            return redirect(url_for('signup'))
+
     return render_template("login_page.html")
 
 @app.route('/dashboard')
 def dashboard():
-    if 'user_id' not in session:
-        return redirect("/login")
-    return render_template("dashboard.html")
+    # if 'user_id' not in session:
+    #     return redirect("/login")
+    # return render_template("dashboard.html")
+    return "we the user"
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
-    pass
+   return "this is the admin burrah!!"
 
 @app.route('/api/data', methods=['GET', 'POST'])
 def data():
@@ -67,13 +101,15 @@ def data():
 asgi_app = WsgiToAsgi(app)
 
 if __name__ == '__main__':
-    # if not os.path.exists(DATABASE):
-    #     with app.app_context():
-    #         init_db()
+    if not os.path.exists(DATABASE):
+        with app.app_context():
+            init_db()
 
+    event = User()._ensure_admin_exists()
+    
     uvicorn.run(
         "app:asgi_app",
-        host="0.0.0.0",
-        port=9000,
+        host=HOST,
+        port=PORT,
         reload=True
     )

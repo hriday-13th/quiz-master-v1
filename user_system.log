@@ -1,0 +1,259 @@
+2025-05-08 22:36:37,663 [INFO] User table ensured in database.
+2025-05-08 22:39:44,096 [INFO] User table ensured in database.
+2025-05-08 22:40:26,854 [INFO] User table ensured in database.
+2025-05-08 22:40:26,855 [INFO] Default admin account created.
+2025-05-08 22:40:26,855 [INFO] Admin account already exists.
+2025-05-08 22:40:45,523 [INFO] User table ensured in database.
+2025-05-08 22:40:45,523 [INFO] Admin account already exists.
+2025-05-08 22:40:45,523 [INFO] Admin account already exists.
+2025-05-08 22:42:52,555 [INFO] User table ensured in database.
+2025-05-08 22:42:52,555 [INFO] Admin account already exists.
+2025-05-08 22:42:52,555 [INFO] Admin account already exists.
+2025-05-08 22:43:11,066 [INFO] User table ensured in database.
+2025-05-08 22:43:11,066 [INFO] Admin account already exists.
+2025-05-08 22:43:11,067 [INFO] Admin login successful for user 'admin'.
+2025-05-08 22:43:11,067 [INFO] Database connection closed.
+2025-05-08 22:43:11,067 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 70, in login
+    session['user_id'] = user['UserID']
+TypeError: tuple indices must be integers or slices, not str
+2025-05-08 22:44:04,681 [INFO] User table ensured in database.
+2025-05-08 22:44:04,681 [INFO] Admin account already exists.
+2025-05-08 22:44:04,682 [WARNING] Login failed for user 'new_user'. Incorrect credentials.
+2025-05-08 22:44:04,682 [INFO] Database connection closed.
+2025-05-08 22:44:48,835 [INFO] User table ensured in database.
+2025-05-08 22:44:48,835 [INFO] Admin account already exists.
+2025-05-08 22:44:48,837 [INFO] User 'test user' registered successfully.
+2025-05-08 22:44:48,838 [INFO] Database connection closed.
+2025-05-08 22:44:56,830 [INFO] User table ensured in database.
+2025-05-08 22:44:56,830 [INFO] Admin account already exists.
+2025-05-08 22:44:56,831 [INFO] User login successful for user 'test user'.
+2025-05-08 22:44:56,831 [INFO] Database connection closed.
+2025-05-08 22:44:56,831 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 70, in login
+    session['user_id'] = user['UserID']
+TypeError: tuple indices must be integers or slices, not str
+2025-05-08 22:45:49,835 [INFO] User table ensured in database.
+2025-05-08 22:45:49,835 [INFO] Admin account already exists.
+2025-05-08 22:45:49,835 [INFO] User login successful for user 'test user'.
+2025-05-08 22:45:49,835 [INFO] Database connection closed.
+2025-05-08 22:45:49,835 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 71, in login
+    session['user_id'] = user['UserID']
+TypeError: tuple indices must be integers or slices, not str
+2025-05-08 22:46:34,167 [INFO] User table ensured in database.
+2025-05-08 22:46:34,168 [INFO] Admin account already exists.
+2025-05-08 22:46:34,168 [INFO] Admin account already exists.
+2025-05-08 22:46:42,599 [INFO] User table ensured in database.
+2025-05-08 22:46:42,599 [INFO] Admin account already exists.
+2025-05-08 22:46:42,600 [INFO] Admin login successful for user 'admin'.
+2025-05-08 22:46:42,600 [INFO] Database connection closed.
+2025-05-08 22:46:42,600 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 71, in login
+    session['user_id'] = user['UserID']
+TypeError: tuple indices must be integers or slices, not str
+2025-05-08 22:49:12,078 [INFO] User table ensured in database.
+2025-05-08 22:49:12,078 [INFO] Admin account already exists.
+2025-05-08 22:49:12,078 [INFO] Admin account already exists.
+2025-05-08 22:49:25,903 [INFO] User table ensured in database.
+2025-05-08 22:49:25,903 [INFO] Admin account already exists.
+2025-05-08 22:49:25,903 [INFO] Admin login successful for user 'admin'.
+2025-05-08 22:49:25,904 [INFO] Database connection closed.
+2025-05-08 22:49:25,904 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 71, in login
+    session['user_id'] = user['UserID']
+IndexError: No item with that key
+2025-05-08 22:50:24,896 [INFO] User table ensured in database.
+2025-05-08 22:50:24,896 [INFO] Admin account already exists.
+2025-05-08 22:50:24,896 [INFO] Admin account already exists.
+2025-05-08 22:51:04,282 [INFO] User table ensured in database.
+2025-05-08 22:51:04,282 [INFO] Admin account already exists.
+2025-05-08 22:51:04,283 [WARNING] Login failed for user 'test user'. Incorrect credentials.
+2025-05-08 22:51:04,283 [INFO] Database connection closed.
+2025-05-08 22:51:41,455 [INFO] User table ensured in database.
+2025-05-08 22:51:41,456 [INFO] Admin account already exists.
+2025-05-08 22:51:41,456 [WARNING] Registration failed: Username 'test user' already exists.
+2025-05-08 22:51:41,457 [INFO] Database connection closed.
+2025-05-08 22:51:54,255 [INFO] User table ensured in database.
+2025-05-08 22:51:54,255 [INFO] Admin account already exists.
+2025-05-08 22:51:54,255 [INFO] User login successful for user 'test user'.
+2025-05-08 22:51:54,256 [INFO] Database connection closed.
+2025-05-08 22:51:54,256 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 71, in login
+    session['user_id'] = user['UserID']
+IndexError: No item with that key
+2025-05-08 22:53:28,616 [INFO] User table ensured in database.
+2025-05-08 22:53:28,616 [INFO] Default admin account created.
+2025-05-08 22:53:28,616 [INFO] Admin account already exists.
+2025-05-08 22:53:37,106 [INFO] User table ensured in database.
+2025-05-08 22:53:37,107 [INFO] Admin account already exists.
+2025-05-08 22:53:37,107 [WARNING] Login failed for user 'test user'. Incorrect credentials.
+2025-05-08 22:53:37,107 [INFO] Database connection closed.
+2025-05-08 22:53:51,723 [INFO] User table ensured in database.
+2025-05-08 22:53:51,724 [INFO] Admin account already exists.
+2025-05-08 22:53:51,725 [INFO] User 'test' registered successfully.
+2025-05-08 22:53:51,725 [INFO] Database connection closed.
+2025-05-08 22:53:58,958 [INFO] User table ensured in database.
+2025-05-08 22:53:58,958 [INFO] Admin account already exists.
+2025-05-08 22:53:58,958 [INFO] User login successful for user 'test'.
+2025-05-08 22:53:58,958 [INFO] Database connection closed.
+2025-05-08 22:53:58,958 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 71, in login
+    session['user_id'] = user['UserID']
+IndexError: No item with that key
+2025-05-08 22:54:08,700 [INFO] User table ensured in database.
+2025-05-08 22:54:08,700 [INFO] Admin account already exists.
+2025-05-08 22:54:08,700 [INFO] Admin login successful for user 'admin'.
+2025-05-08 22:54:08,700 [INFO] Database connection closed.
+2025-05-08 22:54:08,700 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 71, in login
+    session['user_id'] = user['UserID']
+IndexError: No item with that key
+2025-05-09 00:11:30,014 [INFO] User table ensured in database.
+2025-05-09 00:11:30,014 [INFO] Admin account already exists.
+2025-05-09 00:11:30,014 [INFO] Admin account already exists.
+2025-05-09 00:11:49,807 [INFO] User table ensured in database.
+2025-05-09 00:11:49,808 [INFO] Admin account already exists.
+2025-05-09 00:11:49,808 [INFO] Admin login successful for user 'admin'.
+2025-05-09 00:11:49,808 [INFO] Database connection closed.
+2025-05-09 00:11:49,808 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 71, in login
+    session['user_id'] = user['UserID']
+IndexError: No item with that key
+2025-05-09 00:21:41,590 [INFO] User table ensured in database.
+2025-05-09 00:21:41,590 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 66, in login
+    user_model = User()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/database/user.py", line 21, in __init__
+    self._ensure_admin_exists()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/database/user.py", line 44, in _ensure_admin_exists
+    self.cursor.execute("SELECT * FROM USER WHERE username = ? AND is_admin = 1", (admin_username,))
+sqlite3.OperationalError: no such column: is_admin
+2025-05-09 00:22:18,068 [INFO] User table ensured in database.
+2025-05-09 00:22:18,069 [ERROR] Exception on /login [POST]
+Traceback (most recent call last):
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/app.py", line 66, in login
+    user_model = User()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/database/user.py", line 21, in __init__
+    self._ensure_admin_exists()
+  File "/Users/hridaypradhan/Desktop/Projects/quiz-master-v1/database/user.py", line 46, in _ensure_admin_exists
+    self.cursor.execute("""
+sqlite3.OperationalError: table USER has no column named full_name
+2025-05-09 00:24:09,417 [INFO] User table ensured in database.
+2025-05-09 00:24:09,419 [INFO] Default admin account created.
+2025-05-09 00:24:09,419 [INFO] Admin login successful for user 'admin'.
+2025-05-09 00:24:09,419 [INFO] Database connection closed.
+2025-05-09 00:24:17,103 [INFO] User table ensured in database.
+2025-05-09 00:24:17,103 [INFO] Admin account already exists.
+2025-05-09 00:24:17,104 [WARNING] Login failed for user 'test'. Incorrect credentials.
+2025-05-09 00:24:17,104 [INFO] Database connection closed.
+2025-05-09 00:24:28,719 [INFO] User table ensured in database.
+2025-05-09 00:24:28,719 [INFO] Admin account already exists.
+2025-05-09 00:24:28,720 [INFO] User 'test' registered successfully.
+2025-05-09 00:24:28,720 [INFO] Database connection closed.
+2025-05-09 00:24:33,583 [INFO] User table ensured in database.
+2025-05-09 00:24:33,584 [INFO] Admin account already exists.
+2025-05-09 00:24:33,584 [INFO] User login successful for user 'test'.
+2025-05-09 00:24:33,584 [INFO] Database connection closed.
+2025-05-09 00:25:44,636 [INFO] User table ensured in database.
+2025-05-09 00:25:44,637 [INFO] Admin account already exists.
+2025-05-09 00:25:44,637 [INFO] User login successful for user 'test'.
+2025-05-09 00:25:44,637 [INFO] Database connection closed.
