@@ -257,3 +257,12 @@ sqlite3.OperationalError: table USER has no column named full_name
 2025-05-09 00:25:44,637 [INFO] Admin account already exists.
 2025-05-09 00:25:44,637 [INFO] User login successful for user 'test'.
 2025-05-09 00:25:44,637 [INFO] Database connection closed.
+2025-05-09 11:52:41,220 [INFO] User table ensured in database.
+2025-05-09 11:52:41,221 [INFO] Admin account already exists.
+2025-05-09 11:52:41,221 [INFO] Admin account already exists.
+2025-05-09 11:54:02,231 [INFO] User table ensured in database.
+2025-05-09 11:54:02,232 [INFO] Admin account already exists.
+2025-05-09 11:54:02,232 [INFO] Admin account already exists.
+2025-05-09 11:54:31,190 [INFO] User table ensured in database.
+2025-05-09 11:54:31,190 [INFO] Admin account already exists.
+2025-05-09 11:54:31,190 [INFO] Admin account already exists.

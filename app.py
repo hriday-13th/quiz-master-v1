@@ -81,14 +81,15 @@ def login():
 
 @app.route('/dashboard')
 def dashboard():
-    # if 'user_id' not in session:
-    #     return redirect("/login")
-    # return render_template("dashboard.html")
-    return "we the user"
+    if 'user_id' not in session:
+        return redirect("/login")
+    return render_template("user_dashboard.html")
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
-   return "this is the admin burrah!!"
+    if 'user_id' not in session:
+        return redirect("/login")
+    return render_template("admin_dashboard.html")
 
 @app.route('/api/data', methods=['GET', 'POST'])
 def data():
